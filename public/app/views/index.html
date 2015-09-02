@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset='utf-8'>
+    <title>MY APP</title> 
+    <base href="/">
+
+    <!-- CSS -->
+    <!-- load bootstrap and fontawesome via CDN -->
+    <link rel="stylesheet" href="http://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="http://netdna.bootstrapcdn.com/font-awesome/4.0.0/css/font-awesome.css">
+    <style>
+      .map-canvas { height: 100%; }
+    </style>
+
+    <!-- load maps, angular, ng-map and our app -->
+    <script src='//maps.googleapis.com/maps/api/js?sensor=false'></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.5/angular.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.5/angular-route.js"></script>
+
+    
+    <script src='../../assets/js/ng-map.js'></script>
+
+    <script src="../../app/controllers/app.js"></script>
+    <script src="../../app/controllers/routes.js"></script>
+    <script src="../../app/services/eventsService.js"></script>
+    <script src="../../app/services/sharedService.js"></script>
+  </head>
+  <body ng-app="myApp" ng-controller="mainController as main">
+    <header>
+    <nav class="navbar navbar-default">
+      <div class="navbar-header">
+        <a class="navbar-brand" href="/">Cypher-Finder</a>
+      </div>
+
+      <ul class="nav navbar-nav navbar-right">
+        <li><a href="/create" ng-click="main.passCenter()"><i class="fa fa-shield"></i> Create</a></li>
+      </ul>
+    </nav>
+  </header>
+
+    <main>
+    <!-- angular templating will go here -->
+    <!-- this is where content will be injected -->
+    <div ng-view></div>
+
+
+  </main>
+  </body>
+</html>

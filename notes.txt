@@ -1,0 +1,24 @@
+Tasks to be completed:
+-Implement Event Creation with map
+    -Plop pin
+    -Fill in forms (in modal or pop up window on map)
+    -Submit button
+    -Service for finding address from coords
+    -Search Box for places/addresses
+    -refresh with center on new event
+-Route Event Creation to backend routes
+-Implement User Authentication backend
+    -email, facebook, google
+    -passport
+-Implement User Authentication frontend
+    -Sign in/Log in modal
+-Implement time filtering
+    -Time sliders
+    -Calendar select
+-Implement searching
+    -Auto complete tags for styles
+    -Search for names
+-Implement event pages
+-Implement user profiles
+-Add extra info to schema and event creation
+-Implement async event loading from database

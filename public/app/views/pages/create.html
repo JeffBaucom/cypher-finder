@@ -1,0 +1,27 @@
+<div class="row">
+<div class="col-md-6">
+<div class="map-canvas">
+    <map center="[37.853843, -122.278776]" zoom="10" style="height: 800px;">
+        <marker position="{{create.center}}"  animation="DROP" draggable="true" on-drag="create.updatePos()"></marker>
+ 	</map>
+
+ </div>
+ </div>
+<div class="col-md-6">
+	<form ng-submit="create.postEvent()">
+	<div class="form-group">
+	<label>Event Name</label>
+	<input type="text" class="form-control"
+	ng-model="create.newEvent.name">
+	</div>
+	<div class="form-group">
+	<label>Event Address</label>
+	<input type="text" class="form-control"
+	ng-model="create.newEvent.name">
+	</div>
+	</form>
+	<p>New Event Position:</p>
+    <h3>{{create.markerPos}}</h3>	
+
+</div>
+</div>
