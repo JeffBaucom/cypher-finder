@@ -1,10 +1,11 @@
+// BASE SETUP ===================================
 /*
  * module dependencies
  */
 
-var express    = require('express');
-var app        = express();
-var mongoose   = require('mongoose');
+var express    = require('express'); // use express for routing
+var app        = express(); // expose app
+var mongoose   = require('mongoose'); //
 var bodyParser = require('body-parser');
 var morgan     = require('morgan');
 var config     = require('./config');
@@ -26,7 +27,7 @@ app.use(function(req, res, next) {
 // use morgan to output requests to terminal
 app.use(morgan('dev'));
 
-// connect to mongo
+// connect to MongoDB
 mongoose.connect(config.db);
 
 // link static files for frontend requests
