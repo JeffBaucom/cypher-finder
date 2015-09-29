@@ -1,5 +1,5 @@
 //ngMap dependency for Angular maps directives
-angular.module('myApp', ['routerRoutes', 'ngMap', 'eventsService', 'sharedService'])
+angular.module('myApp', ['routerRoutes', 'ngMap', 'ui.bootstrap.datetimepicker','eventsService', 'sharedService'])
 
 .controller('mainController', function($scope, Events, sharedData) {
 	var vm = this;
@@ -29,6 +29,7 @@ angular.module('myApp', ['routerRoutes', 'ngMap', 'eventsService', 'sharedServic
 .controller('createController', function($scope, Events, sharedData) {
     var vm = this;
     vm.markerPos = "(37.853843, -122.278776)"
+    vm.event = {};
 
     $scope.$on('mapInitialized', function(evt, map) {
         vm.map = map;
@@ -50,6 +51,8 @@ angular.module('myApp', ['routerRoutes', 'ngMap', 'eventsService', 'sharedServic
     }
 
     vm.postEvent = function() {
-        
+         vm.event.lat = vm.map.markers[0].getPosition().lat();
+         vm.event.lng = vm.map.markers[0].getPosition().lng();
+         console.log(vm.event);
     }
 });

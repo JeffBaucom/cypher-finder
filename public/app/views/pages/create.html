@@ -12,22 +12,14 @@
 	<div class="form-group">
 	<label>Event Name</label>
 	<input type="text" class="form-control"
-	ng-model="create.newEvent.name">
+	ng-model="create.event.name">
 	</div>
 	<div class="form-group">
-	<label>Event Address</label>
-	<input type="text" class="form-control"
-	ng-model="create.newEvent.address">
+	<label>Start Time</label>
+	<datetimepicker ng-model="create.event.start">
 	</div>
-	<div class="form-group">
-	<label>Start Time (UTC)</label>
-	<input type="text" class="form-control"
-	ng-model="create.newEvent.start">
-	</div>
-	<div class="form-group">
-	<label>End Time (UTC)</label>
-	<input type="text" class="form-control"
-	ng-model="create.newEvent.end">
+	<label>End Time</label>
+	<datetimepicker ng-model="create.event.end">
 	</div>
 	<button type="submit" class="btn btn-block btn-primary"> <span>Create</span>
 	</button>

@@ -1,0 +1,23 @@
+{
+  "name": "cypher-finder",
+  "version": "0.0.0",
+  "homepage": "https://github.com/JeffBaucom/cypher-finder",
+  "authors": [
+    "JeffBaucom <jeffbaucom@gmail.com>"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular-datepicker": "~1.0.16",
+    "angular-bootstrap-datetimepicker": "~0.3.13"
+  },
+  "resolutions": {
+    "angular": ">=1.2.0 <1.5.0"
+  }
+}
