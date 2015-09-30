@@ -1,5 +1,5 @@
 <div class="row">
-<div class="col-md-6">
+<div class="col-md-4">
 <div class="map-canvas">
     <map center="[37.853843, -122.278776]" zoom="10" style="height: 800px;">
         <marker position="{{create.center}}"  animation="DROP" draggable="true" on-drag="create.updatePos()"></marker>
@@ -7,25 +7,28 @@
 
  </div>
  </div>
-<div class="col-md-6">
+<div class="col-md-8">
 	<form ng-submit="create.postEvent()">
 	<div class="form-group">
 	<label>Event Name</label>
 	<input type="text" class="form-control"
 	ng-model="create.event.name">
 	</div>
-	<div class="form-group">
-	<label>Start Time</label>
-	<datetimepicker ng-model="create.event.start">
-	</div>
-	<label>End Time</label>
-	<datetimepicker ng-model="create.event.end">
+	<div class="row">
+		<div class="col-md-4">
+		<label>Start Time</label>
+		<datetimepicker ng-model="create.event.start">
+		</div>
+		<div class="col-md-4">
+		<label>End Time</label>
+		<datetimepicker ng-model="create.event.end">
+		</div>
 	</div>
 	<button type="submit" class="btn btn-block btn-primary"> <span>Create</span>
 	</button>
 	</form>
 	<p>New Event Position:</p>
-    <h3>{{create.markerPos}}</h3>
+    <h3>{{create.event}}</h3>
 
 
 </div>
