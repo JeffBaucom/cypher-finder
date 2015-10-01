@@ -1,5 +1,5 @@
 //ngMap dependency for Angular maps directives
-angular.module('myApp', ['routerRoutes', 'ngMap', 'ui.bootstrap.datetimepicker','eventsService', 'sharedService'])
+angular.module('myApp', ['routerRoutes', 'ngMap', 'ui.bootstrap.datetimepicker', 'ngTagsInput', 'eventsService', 'sharedService'])
 
 .controller('mainController', function($scope, Events, sharedData) {
 	var vm = this;

@@ -24,10 +24,16 @@
 		<datetimepicker ng-model="create.event.end">
 		</div>
 	</div>
+	<label>Styles</label>
+	<tags-input ng-model="create.event.styles" placeholder="Locking, Popping, House, etc."></tags-input>
+	<label>What type of event</label>
+	<tags-input ng-model="create.event.kind" placeholder="Open Session, Workshop, Battle, Jam, etc."></tags-input>
+	<label>About</label>
+	<textarea class="form-control" rows="3" ng-model="create.event.about"></textarea>
 	<button type="submit" class="btn btn-block btn-primary"> <span>Create</span>
 	</button>
 	</form>
-	<p>New Event Position:</p>
+	<p>JSON view</p>
     <h3>{{create.event}}</h3>
 
 

@@ -15,7 +15,8 @@
   ],
   "dependencies": {
     "angular-datepicker": "~1.0.16",
-    "angular-bootstrap-datetimepicker": "~0.3.13"
+    "angular-bootstrap-datetimepicker": "~0.3.13",
+    "ng-tags-input": "3.0.0"
   },
   "resolutions": {
     "angular": ">=1.2.0 <1.5.0"
