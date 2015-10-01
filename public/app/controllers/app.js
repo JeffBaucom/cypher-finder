@@ -48,6 +48,8 @@ angular.module('myApp', ['routerRoutes', 'ngMap', 'ui.bootstrap.datetimepicker',
 
     vm.updatePos = function() {
         vm.markerPos = vm.map.markers[0].getPosition().toString();
+        vm.event.lat = vm.map.markers[0].getPosition().lat();
+        vm.event.lng = vm.map.markers[0].getPosition().lng();
     }
 
     vm.postEvent = function() {
