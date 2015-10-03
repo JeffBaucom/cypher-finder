@@ -58,7 +58,12 @@ angular.module('myApp', ['routerRoutes', 'ngMap', 'ui.bootstrap.datetimepicker',
          console.log(vm.event);
     }
 
-    vm.enterPlace = function(place) {
-        console.log(place);
+    vm.enterPlace = function() {
+        vm.place = this.getPlace();
+        vm.placeLoc = vm.place.geometry.location
+        vm.map.setCenter(vm.placeLoc);
+        vm.map.markers[0].setPosition(vm.placeLoc);
+        vm.center = [vm.placeLoc.lat, vm.placeLoc.lng];
+        console.log(vm.map.markers[0].getPosition().toString());
     }
 });
