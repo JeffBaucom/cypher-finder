@@ -56,6 +56,7 @@ angular.module('myApp', ['routerRoutes', 'ngMap', 'ui.bootstrap.datetimepicker',
          vm.event.lat = vm.map.markers[0].getPosition().lat();
          vm.event.lng = vm.map.markers[0].getPosition().lng();
          console.log(vm.event);
+         Events.create(vm.event);
     }
 
     vm.enterPlace = function() {

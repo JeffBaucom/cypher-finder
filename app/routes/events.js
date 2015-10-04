@@ -10,6 +10,7 @@ module.exports = function(app, express) {
             var event = new Event();
 
             //set the event information
+            console.log(req.body);
             event.name = req.body.name;
             event.address = req.body.address;
             event.lat = req.body.lat;

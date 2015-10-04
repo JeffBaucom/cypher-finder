@@ -1,7 +1,7 @@
 <div class="row">
 <div class="col-md-4">
 <div class="map-canvas">
-	<input places-auto-complete size="60" types="['geocode']" on-place-changed="create.enterPlace(place)" />
+	<input places-auto-complete size="60" types="['geocode']" ng-model="create.event.address" on-place-changed="create.enterPlace(place)" />
     <map center="[37.853843, -122.278776]" zoom="10" style="height: 800px;">
         <marker position="{{create.center}}"  animation="DROP" draggable="true" on-drag="create.updatePos()"></marker>
  	</map>
