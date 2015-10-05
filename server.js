@@ -12,6 +12,8 @@ var config     = require('./config');
 var path       = require('path');
 var port       = config.port;
 
+mongoose.set('debug', true);
+
 
 app.use(bodyParser.urlencoded({ extended: true}));
 app.use(bodyParser.json());

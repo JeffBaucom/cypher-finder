@@ -10,7 +10,6 @@ module.exports = function(app, express) {
             var event = new Event();
 
             //set the event information
-            console.log(req.body);
             event.name = req.body.name;
             event.address = req.body.address;
             event.lat = req.body.lat;
@@ -20,17 +19,23 @@ module.exports = function(app, express) {
             event.styles = req.body.styles;
             event.kind = req.body.kind;
             event.about = req.body.about;
+            console.log(event);
 
             // save and check for errors
             event.save(function(err) {
                 if (err) {
                     // duplicate entry
-                    if (err.code == 11000)
+                    if (err.code == 11000) {
                         return res.json({ success: false, message: 'already exists'});
-                    else
+                    } else {
                         return res.send(err);
-                }
+                    }
+                    
+                } else {
+                    res.send(time);
+                    console.log('success');
                     res.json({message: 'event created!'});
+                }
             });
         })
 
