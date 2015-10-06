@@ -53,10 +53,20 @@ angular.module('myApp', ['routerRoutes', 'ngMap', 'ui.bootstrap.datetimepicker',
     }
 
     vm.postEvent = function() {
-         vm.event.lat = vm.map.markers[0].getPosition().lat();
-         vm.event.lng = vm.map.markers[0].getPosition().lng();
-         console.log(vm.event);
-         Events.create(vm.event);
+        var stylesArr = [];
+        for (i = 0; i < vm.event.styles.length; i++) {
+            stylesArr[i] = vm.event.styles[i].text;
+        }
+        var kindArr = [];
+        for (i = 0; i < vm.event.kind.length; i++) {
+            kindArr[i] = vm.event.kind[i].text;
+        }
+        vm.event.styles = stylesArr;
+        vm.event.kind = kindArr;
+        vm.event.lat = vm.map.markers[0].getPosition().lat();
+        vm.event.lng = vm.map.markers[0].getPosition().lng();
+        console.log(vm.event);
+        Events.create(vm.event);
     }
 
     vm.enterPlace = function() {
