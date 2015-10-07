@@ -24,6 +24,12 @@ angular.module('myApp', ['routerRoutes', 'ngMap', 'ui.bootstrap.datetimepicker',
 	vm.passCenter = function() {
 		sharedData.set(vm.getCenter());
 	}
+
+    vm.enterPlace = function() {
+        vm.place = this.getPlace();
+        vm.placeLoc = vm.place.geometry.location
+        vm.map.setCenter(vm.placeLoc);
+    }
 })
 
 .controller('createController', function($scope, Events, sharedData) {

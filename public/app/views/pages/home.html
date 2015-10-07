@@ -1,5 +1,7 @@
 <div class="row">
+<input places-auto-complete size="80" types="['geocode']" ng-model="main.address"on-place-changed="main.enterPlace(place)" style="padding-left: 10px;"/>
 <div class="map-canvas">
+
     <map center="{{main.center}}" zoom="10" style="height: 800px;">
         <marker ng-repeat='item in main.list' position='{{item.lat}}, {{item.lng}}' title='{{item.name}}'></marker>
  	</map>
