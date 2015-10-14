@@ -33,7 +33,6 @@ module.exports = function(app, express) {
                     
                 } else {
                     res.send(time);
-                    console.log('success');
                     res.json({message: 'event created!'});
                 }
             });
