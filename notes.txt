@@ -1,12 +1,7 @@
-Tasks to be completed:
+Features to be impleted:
 -Implement Event Creation with map
-    -Plop pin
-    -Fill in forms (in modal or pop up window on map)
-    -Submit button
     -Service for finding address from coords
-    -Search Box for places/addresses
     -refresh with center on new event
--Route Event Creation to backend routes
 -Implement User Authentication backend
     -email, facebook, google
     -passport
@@ -21,4 +16,14 @@ Tasks to be completed:
 -Implement event pages
 -Implement user profiles
 -Add extra info to schema and event creation
--Implement async event loading from database
+
+
+TODO:
+-Fix search-box/marker bugs on create page
+-Create add/styles auto-complete arrays (store autocomplete in DB, but don't embed objects in /events"
+-Add omnisearch for filtering events on home page
+-Add box for listing events on screen
+-Add info-windows
+-Add static event pages
+-Add users
+
