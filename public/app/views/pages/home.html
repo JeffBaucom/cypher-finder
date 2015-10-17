@@ -3,7 +3,16 @@
 <div class="map-canvas">
 
     <map center="{{main.center}}" zoom="10" style="height: 800px;">
-        <marker ng-repeat='item in main.list' position='{{item.lat}}, {{item.lng}}' id='{{item.name}}'></marker>
+        <marker ng-repeat='item in main.list' position='{{item.lat}}, {{item.lng}}' id='{{$index}}' on-click="main.showInfo(event, $index)"></marker>
+        <info-window id="bar-info-window" max-width"200" visible-on-marker="{{$index}}">
+        	<div ng-non-bindable="">
+        	<div id="bodyContent">
+        		<p>
+        			{{main.selectedMarker.about}}
+        		</p>
+        	</div>
+        	</div>
+        </info-window>
  	</map>
 
  </div>

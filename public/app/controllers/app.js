@@ -30,6 +30,12 @@ angular.module('myApp', ['routerRoutes', 'ngMap', 'ui.bootstrap.datetimepicker',
         vm.placeLoc = vm.place.geometry.location
         vm.map.setCenter(vm.placeLoc);
     }
+
+    vm.showInfo = function(evt, id) {
+        console.log(id);
+        vm.selectedMarker = vm.list[id];
+        $scope.showInfoWindow.apply(this, [evt, 'bar-info-window']);
+    }
 })
 
 .controller('createController', function($scope, Events, sharedData) {
