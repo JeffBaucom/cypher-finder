@@ -25,5 +25,9 @@ TODO:
 -Add box for listing events on screen
 -Add info-windows
 -Add static event pages
+    -get factory on front-end
+    -template route 
+    -service to pass selected event
+    -template calls get route on load
 -Add users
 

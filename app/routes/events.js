@@ -42,7 +42,7 @@ module.exports = function(app, express) {
             Event.find(function(err, events) {
                 if(err) res.send(err);
 
-                // return the users
+                // return the events
                 res.json(events);
             });
         });

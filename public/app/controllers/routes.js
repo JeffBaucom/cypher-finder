@@ -15,5 +15,6 @@ angular.module('routerRoutes', ['ngRoute'])
         controllerAs: 'create'
     });
 
+
     $locationProvider.html5Mode(true);
 });
