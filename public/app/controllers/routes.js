@@ -13,8 +13,13 @@ angular.module('routerRoutes', ['ngRoute'])
         templateUrl: 'app/views/pages/create.html',
         controller: 'createController',
         controllerAs: 'create'
-    });
+    })
 
+    .when('/event', {
+        templateUrl: 'app/views/pages/event.html',
+        controller: 'eventController',
+        controllerAs: 'event'
+    });
 
     $locationProvider.html5Mode(true);
 });
