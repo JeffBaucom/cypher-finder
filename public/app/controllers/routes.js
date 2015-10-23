@@ -1,21 +1,26 @@
-angular.module('routerRoutes', ['ngRoute'])
+angular.module('routerRoutes', ['ui.router'])
 
 // configure our routes
-.config(function($routeProvider, $locationProvider) {
-    $routeProvider
-    .when('/', {
+.config(function($stateProvider, $urlRouterProvider, $locationProvider) {
+    $urlRouterProvider.otherwise('/');
+
+    $stateProvider
+    .state('main', {
+        url: '/',
     	templateUrl: 'app/views/pages/home.html',
     	controller: 'mainController',
     	controllerAs: 'main'
     })
 
-    .when('/create', {
+    .state('create', {
+        url: '/create',
         templateUrl: 'app/views/pages/create.html',
         controller: 'createController',
         controllerAs: 'create'
     })
 
-    .when('/event', {
+    .state('event', {
+        url: '/event',
         templateUrl: 'app/views/pages/event.html',
         controller: 'eventController',
         controllerAs: 'event'
