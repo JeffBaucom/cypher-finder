@@ -20,7 +20,7 @@ angular.module('routerRoutes', ['ui.router'])
     })
 
     .state('event', {
-        url: '/event',
+        url: '/event/:id',
         templateUrl: 'app/views/pages/event.html',
         controller: 'eventController',
         controllerAs: 'event'
