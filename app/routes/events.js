@@ -50,7 +50,7 @@ module.exports = function(app, express) {
         
         // get the event with this id
         .get(function(req, res) {
-            Event.findById(req.params.event_id, function(err, events) {
+            Event.findById(req.params.event_id, function(err, event) {
                 if (err) { res.send(err)};
                 // return the event
                 res.json(event);
@@ -58,7 +58,7 @@ module.exports = function(app, express) {
         })
 
         .put(function(req, res) {
-            Event.findById(req.params.event_id, function(err, events) {
+            Event.findById(req.params.event_id, function(err, event) {
                 if (err) { res.send(err)};
                                 
                 if (req.body.name) event.name = req.body.name;
@@ -82,7 +82,7 @@ module.exports = function(app, express) {
         .delete(function(req, res) {
             Event.remove({
                 _id: req.params.event_id
-            }, function(err, events) {
+            }, function(err, event) {
                 if (err) return res.send(err);
                 
                 res.json({ message: 'Event deleted' });

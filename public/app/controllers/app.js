@@ -91,4 +91,13 @@ angular.module('myApp', ['routerRoutes', 'ngMap', 'ui.bootstrap.datetimepicker',
         vm.event.lat = vm.map.markers[0].getPosition().lat();
         vm.event.lng = vm.map.markers[0].getPosition().lng();
     }
+})
+
+.controller('eventController', function($scope, Events, $stateParams) {
+    var vm = this;
+
+    Events.get($stateParams.eventId)
+        .success(function(data) {
+            vm.event = data;
+        });
 });

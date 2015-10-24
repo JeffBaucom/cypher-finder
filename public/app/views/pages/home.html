@@ -7,7 +7,7 @@
         <info-window id="bar-info-window" max-width"200" visible-on-marker="{{$index}}">
         	<div ng-non-bindable="">
         	<div id="bodyContent">
-        		<h3>{{main.selectedMarker.name}}</h3>
+        		<a ng-href="/event/{{main.selectedMarker._id}}"><h3>{{main.selectedMarker.name}}</h3></a>
         		<p>
         			{{main.selectedMarker.about}}
         		</p>
