@@ -88,15 +88,18 @@ angular.module('myApp', ['routerRoutes', 'ngMap', 'ui.bootstrap.datetimepicker',
         console.log(vm.placeLoc.lng());
         vm.map.setCenter(vm.placeLoc);
         vm.map.markers[0].setPosition(vm.placeLoc);
-        vm.center = [vm.placeLoc.lat, vm.placeLoc.lng];
+        vm.center = [vm.placeLoc.lat(), vm.placeLoc.lng()];
         console.log(vm.map.markers[0].getPosition().toString());
         if (!vm.map.markers[0].getPosition().equals(vm.placeLoc)) {
             for (i = 0; i < vm.map.markers.length; i++) {
                 vm.map.markers[i].setPosition(vm.placeLoc);
             }
+            vm.event.lat = vm.placeLoc.lat();
+            vm.event.lng = vm.placeLoc.lng();
+        } else {
+            vm.event.lat = vm.map.markers[0].getPosition().lat();
+            vm.event.lng = vm.map.markers[0].getPosition().lng();
         }
-        vm.event.lat = vm.map.markers[0].getPosition().lat();
-        vm.event.lng = vm.map.markers[0].getPosition().lng();
     }
 })
 
