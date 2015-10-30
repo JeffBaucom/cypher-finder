@@ -1,4 +1,5 @@
 var Event = require('../models/event');
+var mongoose = require('mongoose');
 
 module.exports = function(app, express) {
     var eventsRouter = express.Router();
@@ -25,6 +26,7 @@ module.exports = function(app, express) {
             event.save(function(err) {
                 if (err) {
                     // duplicate entry
+                    console.log('error');
                     if (err.code == 11000) {
                         return res.json({ success: false, message: 'already exists'});
                     } else {
@@ -32,9 +34,14 @@ module.exports = function(app, express) {
                     }
                     
                 } else {
+                    console.log('success');
                     res.send(time);
                     res.json({message: 'event created!'});
+                    mongoose.disconnect(function () {
+                        console.log('disc');
+                    });
                 }
+
             });
         })
 
