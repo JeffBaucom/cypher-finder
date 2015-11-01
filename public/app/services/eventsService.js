@@ -13,9 +13,7 @@ angular.module('eventsService', ['routerRoutes'])
     };
 
     myFactory.create = function(newEvent) {
-    	return $http.post('/events', newEvent).success(function() {
-            return $location.path('/');
-        }) ;
+    	return $http.post('/events', newEvent);
     };
 
     return myFactory;

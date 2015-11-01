@@ -35,8 +35,8 @@ module.exports = function(app, express) {
                     
                 } else {
                     console.log('success');
-                    res.send(time);
-                    res.json({message: 'event created!'});
+                    //res.send(time);
+                    //res.json({message: 'event created!'});
                     return mongoose.disconnect(function () {
                         console.log('disc');
                     });
