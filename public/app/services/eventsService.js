@@ -1,6 +1,6 @@
 angular.module('eventsService', ['routerRoutes'])
 
-.factory('Events', function($http) {
+.factory('Events', function($http, $location) {
 
     var myFactory = {};
 
@@ -13,7 +13,16 @@ angular.module('eventsService', ['routerRoutes'])
     };
 
     myFactory.create = function(newEvent) {
-    	return $http.post('/events', newEvent);
+    	$http({
+            method: 'POST',
+            url: '/events',
+            data: newEvent,
+            headers: {
+                'Content-Type': 'application/json; charset=utf-8'
+                }
+            }).success(function (data) {
+                $location.path('/');
+            });
     };
 
     return myFactory;
