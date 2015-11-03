@@ -1,5 +1,5 @@
 //ngMap dependency for Angular maps directives
-angular.module('myApp', ['routerRoutes', 'ngMap', 'ui.bootstrap.datetimepicker', 'ngTagsInput', 'eventsService', 'sharedService'])
+angular.module('myApp', ['routerRoutes', 'ngMap', 'ui.bootstrap','ui.bootstrap.datetimepicker', 'ngTagsInput', 'eventsService', 'sharedService'])
 
 .controller('mainController', function($scope, Events, sharedData) {
 	var vm = this;
@@ -57,6 +57,19 @@ angular.module('myApp', ['routerRoutes', 'ngMap', 'ui.bootstrap.datetimepicker',
         vm.map.markers[0].setPosition(vm.centerObj);
         vm.markerPos = vm.map.getCenter().toString();
     });
+    
+    $scope.status = {
+        opened: false
+    };
+
+    $scope.open = function($event) {
+        $scope.status.opened = true;
+    }
+
+    $scope.dateOptions = {
+        formatYear: 'yy',
+        startingDay: 1
+    }
 
     vm.updatePos = function() {
         vm.markerPos = vm.map.markers[0].getPosition().toString();

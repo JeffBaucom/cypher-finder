@@ -17,12 +17,30 @@
 	</div>
 	<div class="row">
 		<div class="col-md-4">
-		<label>Start Time</label>
-		<datetimepicker ng-model="create.event.start">
+		<label>Start</label>
+		<p class="input-group">
+              <input type="text" class="form-control" uib-datepicker-popup="shortDate" ng-model="create.event.startDate" is-open="status.opened" datepicker-options="dateOptions" ng-required="true" close-text="Close" />
+              <span class="input-group-btn">
+                <button type="button" class="btn btn-default" ng-click="open($event)"><i class="glyphicon glyphicon-calendar"></i></button>
+              </span>
+        </p>
+        </div>
+        <div class="col-md-4">
+              <uib-timepicker ng-model="create.event.startTime" hour-step="1" minute-step="15" show-meridian="ismeridian"></uib-timepicker>
 		</div>
+	</div>
+	<div class="row">
 		<div class="col-md-4">
-		<label>End Time</label>
-		<datetimepicker ng-model="create.event.end">
+		<label>End</label>
+		<p class="input-group">
+              <input type="text" class="form-control" uib-datepicker-popup="shortDate" ng-model="create.event.endDate" is-open="status.opened" datepicker-options="dateOptions" ng-required="true" close-text="Close" />
+              <span class="input-group-btn">
+                <button type="button" class="btn btn-default" ng-click="open($event)"><i class="glyphicon glyphicon-calendar"></i></button>
+              </span>
+        </p>
+        </div>
+        <div class="col-md-4">
+              <uib-timepicker ng-model="create.event.endTime" hour-step="1" minute-step="15" show-meridian="ismeridian"></uib-timepicker>
 		</div>
 	</div>
 	<label>Styles</label>
