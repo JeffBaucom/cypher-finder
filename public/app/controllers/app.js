@@ -59,11 +59,15 @@ angular.module('myApp', ['routerRoutes', 'ngMap', 'ui.bootstrap','ui.bootstrap.d
     });
     
     $scope.status = {
-        opened: false
+        opened: false,
+        opened2: false
     };
 
     $scope.open = function($event) {
         $scope.status.opened = true;
+    }
+    $scope.open2 = function($event) {
+        $scope.status.opened2 = true;
     }
 
     $scope.dateOptions = {
