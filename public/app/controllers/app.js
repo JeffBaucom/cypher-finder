@@ -92,6 +92,8 @@ angular.module('myApp', ['routerRoutes', 'ngMap', 'ui.bootstrap','ui.bootstrap.d
         }
         vm.event.styles = stylesArr;
         vm.event.kind = kindArr;
+        vm.event.start = vm.event.startTime;
+        vm.event.end = vm.event.endTime;
         vm.event.lat = vm.map.markers[0].getPosition().lat();
         vm.event.lng = vm.map.markers[0].getPosition().lng();
         Events.create(vm.event);
