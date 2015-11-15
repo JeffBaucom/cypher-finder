@@ -5,7 +5,7 @@ var Schema = mongoose.Schema;
 // event schema
 var EventSchema = new Schema({
     //  author : Schema.Types.ObjectId,
-    name :{type: String, required: true},
+    name : {type: String, required: true},
     address : {type: String, required: false},
     lat : {type: Number, required: true},
     lng : {type: Number, required: true},
