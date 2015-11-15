@@ -1,4 +1,4 @@
-angular.module('myApp').controller('mainController', [$scope, Events, sharedData, function($scope, Events, sharedData) {
+angular.module('myApp').controller('mainController', function($scope, Events, sharedData) {
 	var vm = this;
 
 	$scope.$on('mapInitialized', function(evt, map) {
@@ -33,4 +33,4 @@ angular.module('myApp').controller('mainController', [$scope, Events, sharedData
         vm.selectedMarker = vm.list[id];
         $scope.showInfoWindow.apply(this, [evt, 'bar-info-window']);
     }
-}]);
+});

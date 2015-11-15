@@ -1,4 +1,4 @@
-angular.module('myApp').controller('createController', [$scope, Events, sharedData, function($scope, Events, sharedData) {
+angular.module('myApp').controller('createController', function($scope, Events, sharedData) {
     var vm = this;
     vm.markerPos = "(37.853843, -122.278776)"
     vm.event = {};
@@ -80,4 +80,4 @@ angular.module('myApp').controller('createController', [$scope, Events, sharedDa
             vm.event.lng = vm.map.markers[0].getPosition().lng();
         }
     }
-}]);
+});
