@@ -1,36 +1,35 @@
 angular.module('myApp', ['routerRoutes', 'ngMap', 'ui.bootstrap','ui.bootstrap.datetimepicker', 'ngTagsInput', 'eventsService', 'sharedService']).controller('mainController', function($scope, Events, sharedData) {
-	var vm = this;
-
 	$scope.$on('mapInitialized', function(evt, map) {
-		vm.map = map; // expose map object
+		$scope.map = map; // expose map object
 	});
 
-    Events.all()
-        .success(function(data) {
-            vm.list = data;
-        });
+  Events.all()
+      .success(function(data) {
+          $scope.list = data;
+      });
 
-   	vm.center = [37.853843, -122.278776];
+ 	$scope.center = [37.853843, -122.278776];
 
+  $scope.filter()
 
-	vm.getCenter = function() {
-		console.log(vm.map.getCenter());
-        return {lat: vm.map.getCenter().lat(), lng: vm.map.getCenter().lng()}
+	$scope.getCenter = function() {
+		console.log($scope.map.getCenter());
+        return {lat: $scope.map.getCenter().lat(), lng: $scope.map.getCenter().lng()}
     }
 
-	vm.passCenter = function() {
-		sharedData.set(vm.getCenter());
+	$scope.passCenter = function() {
+		sharedData.set($scope.getCenter());
 	}
 
-    vm.enterPlace = function() {
-        vm.place = this.getPlace();
-        vm.placeLoc = vm.place.geometry.location
-        vm.map.setCenter(vm.placeLoc);
+    $scope.enterPlace = function() {
+        $scope.place = this.getPlace();
+        $scope.placeLoc = $scope.place.geometry.location
+        $scope.map.setCenter($scope.placeLoc);
     }
 
-    vm.showInfo = function(evt, id) {
+    $scope.showInfo = function(evt, id) {
         console.log(id);
-        vm.selectedMarker = vm.list[id];
+        $scope.selectedMarker = $scope.list[id];
         $scope.showInfoWindow.apply(this, [evt, 'bar-info-window']);
     }
 });

@@ -1,16 +1,16 @@
 <div class="row">
-<input places-auto-complete size="80" types="['geocode']" ng-model="main.address"on-place-changed="main.enterPlace(place)" style="padding-left: 10px;"/>
+<input places-auto-complete size="80" types="['geocode']" ng-model="address"on-place-changed="enterPlace(place)" style="padding-left: 10px;"/>
 <div class="col-md-6">
 <div class="map-canvas">
 
-    <map center="{{main.center}}" zoom="10" style="height: 800px;">
-        <marker ng-repeat='item in main.list' position='{{item.lat}}, {{item.lng}}' id='{{$index}}' on-click="main.showInfo(event, $index)"></marker>
+    <map center="{{center}}" zoom="10" style="height: 800px;">
+        <marker ng-repeat='item in list' position='{{item.lat}}, {{item.lng}}' id='{{$index}}' on-click="showInfo(event, $index)"></marker>
         <info-window id="bar-info-window" max-width"200" visible-on-marker="{{$index}}">
         	<div ng-non-bindable="">
         	<div id="bodyContent">
-        		<a ng-href="/event/{{main.selectedMarker._id}}"><h3>{{main.selectedMarker.name}}</h3></a>
+        		<a ng-href="/event/{{selectedMarker._id}}"><h3>{{selectedMarker.name}}</h3></a>
         		<p>
-        			{{main.selectedMarker.about}}
+        			{{selectedMarker.about}}
         		</p>
         	</div>
         	</div>
@@ -19,8 +19,8 @@
 
  </div>
  </div>
- <div class="col-md-6">
- <div ng-repeat='item in main.list'>
+ <div class="col-md-6" ng-init="filter()">
+ <div ng-repeat='item in list'>
     <a ng-href="/event/{{item._id}}"><h3>{{item.name}}</h3></a>
     <p>{{item.about}}</p>
     <p>{{item.start}}</p>

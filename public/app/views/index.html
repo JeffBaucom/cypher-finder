@@ -43,7 +43,7 @@
     <script src="../../app/services/eventsService.js"></script>
     <script src="../../app/services/sharedService.js"></script>
   </head>
-  <body ng-app="myApp" ng-controller="mainController as main">
+  <body ng-app="myApp" ng-controller="mainController">
     <header>
     <nav class="navbar navbar-default">
       <div class="navbar-header">
@@ -51,7 +51,7 @@
       </div>
 
       <ul class="nav navbar-nav navbar-right">
-        <li><a href="/create" ng-click="main.passCenter()"><i class="fa fa-shield"></i> Create</a></li>
+        <li><a href="/create" ng-click="passCenter()"><i class="fa fa-shield"></i> Create</a></li>
       </ul>
     </nav>
   </header>
