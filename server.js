@@ -40,6 +40,9 @@ app.use(express.static(__dirname + '/public'));
 var eventsRoutes = require('./app/routes/events')(app, express);
 app.use('/events', eventsRoutes);
 
+var tagsRoutes = require('./app/routes/tags')(app, express);
+app.use('/tags', eventsRoutes);
+
 //var userRoutes = require('./app/routes/users')(app, express);
 //app.use('/users', userRoutes);
 
