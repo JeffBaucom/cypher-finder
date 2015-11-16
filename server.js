@@ -44,7 +44,7 @@ app.use('/events', eventsRoutes);
 //app.use('/users', userRoutes);
 
 //catch-all route to homepage
-app.get('*', function(req, res) {
+app.get('/*', function(req, res) {
     res.sendFile(path.join(__dirname + '/public/app/views/index.html'));
 });
 
