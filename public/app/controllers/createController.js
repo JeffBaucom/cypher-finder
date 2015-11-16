@@ -92,13 +92,13 @@ angular.module('myApp').controller('createController', function($scope, Events, 
 });
 
 function timeSplice(eventObj, cb) {
-  var t = eventObj.startTime + '';
-  var d = eventObj.startDate + '';
+  var t = eventObj.startTime;
+  var d = eventObj.startDate;
   
   var time = "";
   
-  var arrTime = t.split('T');
-  var arrDate = d.split('T');
+  var arrTime = t.toISOString().split('T');
+  var arrDate = d.toISOString().split('T');
   
   time = arrDate[0] + "T" + arrTime[1];
   
