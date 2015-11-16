@@ -17,5 +17,8 @@ var EventSchema = new Schema({
     // additional : Schema.Types.ObjectId
 });
 
+
+
+
 // return the model
 module.exports = mongoose.model('Event', EventSchema)

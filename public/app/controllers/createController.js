@@ -1,7 +1,12 @@
 angular.module('myApp').controller('createController', function($scope, Events, sharedData) {
     var vm = this;
     vm.markerPos = "(37.853843, -122.278776)"
-    vm.event = {};
+    vm.event = {
+       startDate: null,
+       startTime: null,
+       endDate: null,
+       endTime: null
+    };
 
     $scope.$on('mapInitialized', function(evt, map) {
         vm.map = map;
@@ -56,7 +61,11 @@ angular.module('myApp').controller('createController', function($scope, Events, 
         vm.event.end = vm.event.endTime;
         vm.event.lat = vm.map.markers[0].getPosition().lat();
         vm.event.lng = vm.map.markers[0].getPosition().lng();
-        Events.create(vm.event);
+        timeSplice(vm.event, function(time) {
+          vm.event.start = time;
+          alert(vm.event.start);
+          Events.create(vm.event);
+        });
         console.log("returned");
     }
 
@@ -81,3 +90,19 @@ angular.module('myApp').controller('createController', function($scope, Events, 
         }
     }
 });
+
+function timeSplice(eventObj, cb) {
+  var t = eventObj.startTime + '';
+  var d = eventObj.startDate + '';
+  
+  var time = "";
+  
+  var arrTime = t.split('T');
+  var arrDate = d.split('T');
+  
+  time = arrDate[0] + "T" + arrTime[1];
+  
+  if (time != "") {
+    cb(time);
+  }
+}
