@@ -38,7 +38,7 @@ module.exports = function(app, express) {
                     //res.send(time);
                     ///res.json({message: 'event created!'});
                     
-                    mongoose.disconnect(); 
+                    //mongoose.disconnect(); 
                     
                 }
 
