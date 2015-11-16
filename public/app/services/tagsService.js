@@ -1,0 +1,39 @@
+angular.module('tagsService', ['routerRoutes'])
+
+.factory('Tags', function($http, $location) {
+
+    var myFactory = {};
+
+    myFactory.styles = function() {
+        return $http.get('/tags/styles');
+    };
+    
+    myFactory.kinds = function() {
+        return $http.get('/tags/kinds');
+    };
+
+    myFactory.createStyle = function(newStyle) {
+    	$http({
+            method: 'POST',
+            url: '/tags/styles',
+            data: newStyle,
+            headers: {
+                'Content-Type': 'application/json; charset=utf-8'
+                }
+            });
+    };
+    
+        myFactory.createKind = function(newKind) {
+    	$http({
+            method: 'POST',
+            url: '/tags/kinds',
+            data: newKind,
+            headers: {
+                'Content-Type': 'application/json; charset=utf-8'
+                }
+            });
+    };
+
+    return myFactory;
+
+});
