@@ -10,7 +10,7 @@ angular.module('myApp', ['routerRoutes', 'ngMap', 'ui.bootstrap','ui.bootstrap.d
 
  	$scope.center = [37.853843, -122.278776];
 
-  $scope.filter()
+  //$scope.filter()
 
 	$scope.getCenter = function() {
 		console.log($scope.map.getCenter());

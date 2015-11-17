@@ -8,22 +8,19 @@ angular.module('routerRoutes', ['ui.router'])
     .state('main', {
         url: '/',
     	templateUrl: 'app/views/pages/home.html',
-    	controller: 'mainController',
-    	controllerAs: 'main'
+    	controller: 'mainController'
     })
 
     .state('create', {
         url: '/create',
         templateUrl: 'app/views/pages/create.html',
-        controller: 'createController',
-        controllerAs: 'create'
+        controller: 'createController'
     })
 
     .state('event', {
         url: '/event/:eventId',
         templateUrl: 'app/views/pages/event.html',
-        controller: 'eventController',
-        controllerAs: 'event'
+        controller: 'eventController'
     });
 
     $locationProvider.html5Mode(true);

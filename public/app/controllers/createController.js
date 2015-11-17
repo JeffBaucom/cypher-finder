@@ -1,7 +1,7 @@
 angular.module('myApp').controller('createController', function($scope, Events, sharedData) {
-    var vm = this;
-    vm.markerPos = "(37.853843, -122.278776)"
-    vm.event = {
+
+    $scope.markerPos = "(37.853843, -122.278776)"
+    $scope.event = {
        startDate: null,
        startTime: null,
        endDate: null,
@@ -9,18 +9,18 @@ angular.module('myApp').controller('createController', function($scope, Events, 
     };
 
     $scope.$on('mapInitialized', function(evt, map) {
-        vm.map = map;
-        vm.centerObj = sharedData.get();
-        console.log(vm.centerObj);
-        if (Object.keys(vm.centerObj).length) {
-            vm.map.setCenter(vm.centerObj);
+        $scope.map = map;
+        $scope.centerObj = sharedData.get();
+        console.log($scope.centerObj);
+        if (Object.keys($scope.centerObj).length) {
+            $scope.map.setCenter($scope.centerObj);
             
         } else {
-            vm.centerObj = vm.map.getCenter();
+            $scope.centerObj = $scope.map.getCenter();
         }
-        vm.center = [vm.centerObj.lat , vm.centerObj.lng];
-        vm.map.markers[0].setPosition(vm.centerObj);
-        vm.markerPos = vm.map.getCenter().toString();
+        $scope.center = [$scope.centerObj.lat , $scope.centerObj.lng];
+        $scope.map.markers[0].setPosition($scope.centerObj);
+        $scope.markerPos = $scope.map.getCenter().toString();
     });
     
     $scope.status = {
@@ -40,53 +40,53 @@ angular.module('myApp').controller('createController', function($scope, Events, 
         startingDay: 1
     }
 
-    vm.updatePos = function() {
-        vm.markerPos = vm.map.markers[0].getPosition().toString();
-        vm.event.lat = vm.map.markers[0].getPosition().lat();
-        vm.event.lng = vm.map.markers[0].getPosition().lng();
+    $scope.updatePos = function() {
+        $scope.markerPos = $scope.map.markers[0].getPosition().toString();
+        $scope.event.lat = $scope.map.markers[0].getPosition().lat();
+        $scope.event.lng = $scope.map.markers[0].getPosition().lng();
     }
 
-    vm.postEvent = function() {
+    $scope.postEvent = function() {
         var stylesArr = [];
-        for (i = 0; i < vm.event.styles.length; i++) {
-            stylesArr[i] = vm.event.styles[i].text;
+        for (i = 0; i < $scope.event.styles.length; i++) {
+            stylesArr[i] = $scope.event.styles[i].text;
         }
         var kindArr = [];
-        for (i = 0; i < vm.event.kind.length; i++) {
-            kindArr[i] = vm.event.kind[i].text;
+        for (i = 0; i < $scope.event.kind.length; i++) {
+            kindArr[i] = $scope.event.kind[i].text;
         }
-        vm.event.styles = stylesArr;
-        vm.event.kind = kindArr;
-        vm.event.start = vm.event.startTime;
-        vm.event.end = vm.event.endTime;
-        vm.event.lat = vm.map.markers[0].getPosition().lat();
-        vm.event.lng = vm.map.markers[0].getPosition().lng();
-        timeSplice(vm.event, function(time) {
-          vm.event.start = time;
-          alert(vm.event.start);
-          Events.create(vm.event);
+        $scope.event.styles = stylesArr;
+        $scope.event.kind = kindArr;
+        $scope.event.start = $scope.event.startTime;
+        $scope.event.end = $scope.event.endTime;
+        $scope.event.lat = $scope.map.markers[0].getPosition().lat();
+        $scope.event.lng = $scope.map.markers[0].getPosition().lng();
+        timeSplice($scope.event, function(time) {
+          $scope.event.start = time;
+          alert($scope.event.start);
+          Events.create($scope.event);
         });
         console.log("returned");
     }
 
-    vm.enterPlace = function() {
-        vm.place = this.getPlace();
-        vm.placeLoc = vm.place.geometry.location
-        console.log(vm.placeLoc.lat());
-        console.log(vm.placeLoc.lng());
-        vm.map.setCenter(vm.placeLoc);
-        vm.map.markers[0].setPosition(vm.placeLoc);
-        vm.center = [vm.placeLoc.lat(), vm.placeLoc.lng()];
-        console.log(vm.map.markers[0].getPosition().toString());
-        if (!vm.map.markers[0].getPosition().equals(vm.placeLoc)) {
-            for (i = 0; i < vm.map.markers.length; i++) {
-                vm.map.markers[i].setPosition(vm.placeLoc);
+    $scope.enterPlace = function() {
+        $scope.place = this.getPlace();
+        $scope.placeLoc = $scope.place.geometry.location
+        console.log($scope.placeLoc.lat());
+        console.log($scope.placeLoc.lng());
+        $scope.map.setCenter($scope.placeLoc);
+        $scope.map.markers[0].setPosition($scope.placeLoc);
+        $scope.center = [$scope.placeLoc.lat(), $scope.placeLoc.lng()];
+        console.log($scope.map.markers[0].getPosition().toString());
+        if (!$scope.map.markers[0].getPosition().equals($scope.placeLoc)) {
+            for (i = 0; i < $scope.map.markers.length; i++) {
+                $scope.map.markers[i].setPosition($scope.placeLoc);
             }
-            vm.event.lat = vm.placeLoc.lat();
-            vm.event.lng = vm.placeLoc.lng();
+            $scope.event.lat = $scope.placeLoc.lat();
+            $scope.event.lng = $scope.placeLoc.lng();
         } else {
-            vm.event.lat = vm.map.markers[0].getPosition().lat();
-            vm.event.lng = vm.map.markers[0].getPosition().lng();
+            $scope.event.lat = $scope.map.markers[0].getPosition().lat();
+            $scope.event.lng = $scope.map.markers[0].getPosition().lng();
         }
     }
 });
