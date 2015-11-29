@@ -1,4 +1,4 @@
-angular.module('myApp').controller('createController', function($scope, Events, sharedData) {
+angular.module('myApp').controller('createController', function($scope, Events, tagsService, sharedData) {
 
     $scope.markerPos = "(37.853843, -122.278776)"
     $scope.event = {
@@ -22,6 +22,14 @@ angular.module('myApp').controller('createController', function($scope, Events, 
         $scope.map.markers[0].setPosition($scope.centerObj);
         $scope.markerPos = $scope.map.getCenter().toString();
     });
+    
+     $scope.loadStyles = function(query) {
+        return Tags.getStyles();
+     };
+     
+     $scope.loadKinds = function(query) {
+        return Tags.getKinds();
+     };
     
     $scope.status = {
         opened: false,
@@ -63,7 +71,7 @@ angular.module('myApp').controller('createController', function($scope, Events, 
         $scope.event.lng = $scope.map.markers[0].getPosition().lng();
         timeSplice($scope.event, function(time) {
           $scope.event.start = time;
-          alert($scope.event.start);
+          //alert($scope.event.start);
           Events.create($scope.event);
         });
         console.log("returned");

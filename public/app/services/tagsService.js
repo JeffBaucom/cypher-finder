@@ -4,11 +4,11 @@ angular.module('tagsService', ['routerRoutes'])
 
     var myFactory = {};
 
-    myFactory.styles = function() {
+    myFactory.getStyles = function() {
         return $http.get('/tags/styles');
     };
     
-    myFactory.kinds = function() {
+    myFactory.getKinds = function() {
         return $http.get('/tags/kinds');
     };
 

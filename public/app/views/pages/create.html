@@ -44,9 +44,12 @@
 		</div>
 	</div>
 	<label>Styles</label>
-	<tags-input ng-model="event.styles" placeholder="Locking, Popping, House, etc."></tags-input>
+	<tags-input ng-model="event.styles" placeholder="Locking, Popping, House, etc.">
+		<auto-complete source="loadStyles($query)"></auto-complete></tags-input>
 	<label>What type of event</label>
-	<tags-input ng-model="event.kind" placeholder="Open Session, Workshop, Battle, Jam, etc."></tags-input>
+	<tags-input ng-model="event.kind" placeholder="Open Session, Workshop, Battle, Jam, etc.">
+		<auto-complete source="loadKinds($query)"></auto-complete>
+		</tags-input>
 	<label>About</label>
 	<textarea class="form-control" rows="3" ng-model="event.about"></textarea>
 	<button type="submit" class="btn btn-block btn-primary"> <span>Create</span>
