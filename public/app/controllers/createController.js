@@ -1,4 +1,4 @@
-angular.module('myApp').controller('createController', function($scope, Events, tagsService, sharedData) {
+angular.module('myApp').controller('createController', function($scope, Events, Tags, sharedData) {
 
     $scope.markerPos = "(37.853843, -122.278776)"
     $scope.event = {
@@ -7,6 +7,9 @@ angular.module('myApp').controller('createController', function($scope, Events, 
        endDate: null,
        endTime: null
     };
+    
+    $scope.stylesToAdd = [];
+    $scope.kindsToAdd = [];
 
     $scope.$on('mapInitialized', function(evt, map) {
         $scope.map = map;
@@ -24,11 +27,13 @@ angular.module('myApp').controller('createController', function($scope, Events, 
     });
     
      $scope.loadStyles = function(query) {
-        return Tags.getStyles();
+        $scope.styles = Tags.getStyles();
+        return $scope.styles;
      };
      
      $scope.loadKinds = function(query) {
-        return Tags.getKinds();
+        $scope.kinds = Tags.getKinds();
+        return $scope.kinds;
      };
     
     $scope.status = {
@@ -74,6 +79,13 @@ angular.module('myApp').controller('createController', function($scope, Events, 
           //alert($scope.event.start);
           Events.create($scope.event);
         });
+        $scope.filterNewTags($scope.event.styles, $scope.event.kinds);
+        for (i = 0; i < $scope.stylesToAdd; i++) {
+            Tags.createStyle($scope.stylesToAdd[i]);
+        }
+        for (i = 0; i < $scope.kindsToAdd; i++) {
+            Tags.createKind($scope.kindsToAdd[i]);
+        }
         console.log("returned");
     }
 
@@ -97,6 +109,32 @@ angular.module('myApp').controller('createController', function($scope, Events, 
             $scope.event.lng = $scope.map.markers[0].getPosition().lng();
         }
     }
+    
+    $scope.filterNewTags = function (newStyles, newKinds) {
+        var bool = false;
+        for (var i = 0; i < newStyles.length; i++) {
+            for (var j = 0; j < $scope.styles.length; j++) {
+                if (newStyles[i].text == $scope.styles[j].text) {
+                    bool = true;
+                }
+            }
+            if (bool) {
+                $scope.stylesToAdd.push(newStyles[i]);
+            }
+            bool = false;
+        }
+        for (var i = 0; i < newKinds.length; i++) {
+            for (var j = 0; j < $scope.kinds.length; j++) {
+                if (newKinds[i].text == $scope.kinds[j].text) {
+                    bool = true;
+                }
+            }
+            if (bool) {
+                $scope.kindsToAdd.push(newKinds[i]);
+            }
+            bool = false;
+        }
+};
 });
 
 function timeSplice(eventObj, cb) {
@@ -113,4 +151,5 @@ function timeSplice(eventObj, cb) {
   if (time != "") {
     cb(time);
   }
-}
+};
+

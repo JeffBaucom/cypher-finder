@@ -1,4 +1,4 @@
-angular.module('myApp', ['routerRoutes', 'ngMap', 'ui.bootstrap','ui.bootstrap.datetimepicker', 'ngTagsInput', 'eventsService', 'sharedService']).controller('mainController', function($scope, Events, sharedData) {
+angular.module('myApp').controller('mainController', function($scope, Events, sharedData) {
 	$scope.$on('mapInitialized', function(evt, map) {
 		$scope.map = map; // expose map object
 	});

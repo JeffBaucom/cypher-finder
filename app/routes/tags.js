@@ -67,5 +67,5 @@ module.exports = function(app, express) {
 				res.json(tags)
 			});
 		});
-		
-}
+	return tagsRouter;		
+};
