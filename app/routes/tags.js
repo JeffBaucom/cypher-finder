@@ -23,7 +23,7 @@ module.exports = function(app, express) {
 						return res.send(err);
 					}
 				} else {
-					console.log('success');
+					console.log('successful tag insert');
 				}
 			});
 		})
@@ -55,7 +55,7 @@ module.exports = function(app, express) {
 						return res.send(err);
 					}
 				} else {
-					console.log('success');
+					console.log('successful tag insert');
 				}
 			});
 		})

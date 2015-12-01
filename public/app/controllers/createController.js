@@ -79,7 +79,7 @@ angular.module('myApp').controller('createController', function($scope, Events, 
           //alert($scope.event.start);
           Events.create($scope.event);
         });
-        $scope.filterNewTags($scope.event.styles, $scope.event.kinds);
+        $scope.filterNewTags($scope.event.styles, $scope.event.kind);
         for (i = 0; i < $scope.stylesToAdd; i++) {
             Tags.createStyle($scope.stylesToAdd[i]);
         }
@@ -112,14 +112,16 @@ angular.module('myApp').controller('createController', function($scope, Events, 
     
     $scope.filterNewTags = function (newStyles, newKinds) {
         var bool = false;
+        console.log(newStyles.length);
+        console.log(newKinds.length);
         for (var i = 0; i < newStyles.length; i++) {
             for (var j = 0; j < $scope.styles.length; j++) {
-                if (newStyles[i].text == $scope.styles[j].text) {
+                if (newStyles[i] == $scope.styles[j].text) {
                     bool = true;
                 }
             }
-            if (bool) {
-                $scope.stylesToAdd.push(newStyles[i]);
+            if (!bool) {
+                $scope.stylesToAdd.push({text: newStyles[i]});
             }
             bool = false;
         }
@@ -129,8 +131,8 @@ angular.module('myApp').controller('createController', function($scope, Events, 
                     bool = true;
                 }
             }
-            if (bool) {
-                $scope.kindsToAdd.push(newKinds[i]);
+            if (!bool) {
+                $scope.kindsToAdd.push({text: newKinds[i]});
             }
             bool = false;
         }
