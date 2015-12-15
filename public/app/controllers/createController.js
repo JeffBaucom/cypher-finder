@@ -26,6 +26,7 @@ angular.module('myApp').controller('createController', function($scope, Events, 
         $scope.markerPos = $scope.map.getCenter().toString();
     });
     
+    // TODO : force on-load instead of on entry (UI Bug)
      $scope.loadStyles = function(query) {
         $scope.styles = Tags.getStyles();
         return $scope.styles;
@@ -80,11 +81,13 @@ angular.module('myApp').controller('createController', function($scope, Events, 
           Events.create($scope.event);
         });
         $scope.filterNewTags($scope.event.styles, $scope.event.kind);
-        for (i = 0; i < $scope.stylesToAdd; i++) {
+        for (var i = 0; i < $scope.stylesToAdd.length; i++) {
             Tags.createStyle($scope.stylesToAdd[i]);
+            console.log($scope.stylesToAdd[i]);
         }
-        for (i = 0; i < $scope.kindsToAdd; i++) {
+        for (var i = 0; i < $scope.kindsToAdd.length; i++) {
             Tags.createKind($scope.kindsToAdd[i]);
+            console.log($scope.kindsToAdd[i]);
         }
         console.log("returned");
     }
@@ -99,7 +102,7 @@ angular.module('myApp').controller('createController', function($scope, Events, 
         $scope.center = [$scope.placeLoc.lat(), $scope.placeLoc.lng()];
         console.log($scope.map.markers[0].getPosition().toString());
         if (!$scope.map.markers[0].getPosition().equals($scope.placeLoc)) {
-            for (i = 0; i < $scope.map.markers.length; i++) {
+            for (var i = 0; i < $scope.map.markers.length; i++) {
                 $scope.map.markers[i].setPosition($scope.placeLoc);
             }
             $scope.event.lat = $scope.placeLoc.lat();
