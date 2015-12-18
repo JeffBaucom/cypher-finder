@@ -26,14 +26,18 @@ angular.module('myApp').controller('createController', function($scope, Events, 
         $scope.markerPos = $scope.map.getCenter().toString();
     });
     
-    // TODO : force on-load instead of on entry (UI Bug)
-     $scope.loadStyles = function(query) {
+    $scope.$on('$stateChangeSuccess', function () {
         $scope.styles = Tags.getStyles();
+        $scope.kinds = Tags.getKinds();
+    });
+
+    
+
+     $scope.loadStyles = function(query) {
         return $scope.styles;
      };
      
      $scope.loadKinds = function(query) {
-        $scope.kinds = Tags.getKinds();
         return $scope.kinds;
      };
     
