@@ -44,7 +44,7 @@
 		</div>
 	</div>
 	<label>Styles</label>
-	<tags-input ng-model="event.styles" placeholder="Locking, Popping, House, etc.">
+	<tags-input ng-model="event.styles" key-property="id" display-property="text" placeholder="Locking, Popping, House, etc.">
 		<auto-complete source="loadStyles($query)"></auto-complete></tags-input>
 	<label>What type of event</label>
 	<tags-input ng-model="event.kind" key-property="id" display-property="text" placeholder="Open Session, Workshop, Battle, Jam, etc.">
