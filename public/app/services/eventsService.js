@@ -25,6 +25,20 @@ angular.module('eventsService', ['routerRoutes'])
             });
     };
 
+    myFactory.lookup = function(coords) {
+        return $http({
+            method: 'POST',
+            url: '/events/lookup',
+            data: coords,
+            headers: {
+                'Content-Type': 'application/json; charset=utf-8'
+                }
+            }).then(function successCallback(response) {
+                console.log(response.data);
+                return response.data;
+            });
+        };
+
     return myFactory;
 
 });

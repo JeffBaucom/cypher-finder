@@ -48,7 +48,7 @@ app.use('/tags', tagsRoutes);
 
 //catch-all route to homepage
 app.get('/*', function(req, res) {
-    res.sendFile(path.join(__dirname + '/public/app/views/index.html'));
+    res.sendFile(path.join(__dirname + '/public/index.html'));
 });
 
 

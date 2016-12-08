@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset='utf-8'>
+    <title>MY APP</title> 
+    <base href="/">
+
+    <!-- CSS -->
+    <!-- load bootstrap and fontawesome via CDN -->
+    <link rel="stylesheet" href="http://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="bower_components/font-awesome/css/font-awesome.min.css"/>
+    <link rel="stylesheet" href="bower_components/angular-bootstrap-datetimepicker/src/css/datetimepicker.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ng-tags-input/3.0.0/ng-tags-input.css"/>
+    <style>
+      .map-canvas { height: 100%; }
+    </style>
+
+  
+  </head>
+  <body ng-app="myApp" ng-controller="mainController">
+    <nav class="navbar navbar-default">
+      <div class="navbar-header">
+        <a class="navbar-brand" href="/">Cypher-Finder</a>
+      </div>
+
+      <ul class="nav navbar-nav navbar-right">
+        <li><a href="/create" ng-click="passCenter()"><i class="fa fa-shield"></i> Create</a></li>
+      </ul>
+    </nav>
+
+    <main>
+    <!-- angular templating will go here -->
+    <!-- this is where content will be injected -->
+    <div ui-view></div>
+
+
+  </main>
+
+    <!-- load Dependencies -->
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAx7OKuhV-8rdJPf8ITdm5PqAalkeKM0tw&libraries=places"></script>
+  
+
+    <script src="bower_components/angular/angular.min.js"></script>
+    
+    <script type="text/javascript" src="/bower_components/ngmap/build/scripts/ng-map.min.js"></script>
+    <script type="text/javascript" src="bower_components/angular-ui-router/release/angular-ui-router.js"></script>
+
+    <script type="text/javascript" src="bower_components/moment/moment.js"></script>
+    <script type="text/javascript" src="bower_components/angular-bootstrap/ui-bootstrap-tpls.js"></script>
+    <script type="text/javascript" src="bower_components/angular-bootstrap-datetimepicker/src/js/datetimepicker.js"></script>
+    <script type="text/javascript" src="bower_components/ng-tags-input/ng-tags-input.js"></script>
+
+    <!-- load angular scripts -->
+    <script src="app/controllers/app.js"></script>
+    <script src="app/controllers/mainController.js"></script>
+    <script src="app/controllers/createController.js"></script>
+    <script src="app/controllers/eventController.js"></script>
+
+    <script src="app/controllers/routes.js"></script>
+    <script src="app/services/eventsService.js"></script>
+    <script src="app/services/tagsService.js"></script>
+    <script src="app/services/sharedService.js"></script>
+  </body>
+</html>

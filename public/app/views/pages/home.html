@@ -3,8 +3,8 @@
 <div class="col-md-6">
 <div class="map-canvas">
 
-    <map center="{{center}}" zoom="10" style="height: 800px;">
-        <marker ng-repeat='item in list' position='{{item.lat}}, {{item.lng}}' id='{{$index}}' on-click="showInfo(event, $index)"></marker>
+    <map center="{{center}}" zoom="10" on-center-changed="mapDragged()" style="height: 800px;">
+        <marker ng-repeat='event in events' position='{{event.coords.coordinates[1]}}, {{event.coords.coordinates[0]}}' id='{{$index}}' on-click="showInfo(event, $index)"></marker>
         <info-window id="bar-info-window" max-width"200" visible-on-marker="{{$index}}">
         	<div ng-non-bindable="">
         	<div id="bodyContent">
@@ -20,11 +20,11 @@
  </div>
  </div>
  <div class="col-md-6" ng-init="filter()">
- <div ng-repeat='item in list'>
-    <a ng-href="/event/{{item._id}}"><h3>{{item.name}}</h3></a>
-    <p>{{item.about}}</p>
-    <p>{{item.start}}</p>
-    <p>{{item.end}}</p>
+ <div ng-repeat='event in events'>
+    <a ng-href="/event/{{event._id}}"><h3>{{event.name}}</h3></a>
+    <p>{{event.about}}</p>
+    <p>{{event.start}}</p>
+    <p>{{event.end}}</p>
  </div>
  </div>
  </div>
