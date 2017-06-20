@@ -1,0 +1,27 @@
+.map-canvas { 
+	height: 100%;
+}
+
+body {
+	background-color: whitesmoke;
+	overflow-y: hidden;
+}
+.events-wrapper {
+	overflow-y: hidden;
+}
+.event-list {
+	position: fixed;
+	height: 80%;
+	overflow-y: scroll;
+	padding-bottom: 10rem;
+}
+
+.header {
+	background-color: olivedrab;
+	color: white;
+}
+
+#homeSearch {
+	width: 30rem;
+}
+

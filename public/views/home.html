@@ -1,0 +1,49 @@
+<div class="row">
+    <md-input-container>
+
+<input places-auto-complete size="80" types="['geocode']" ng-model="address"on-place-changed="enterPlace(place)" style="padding-left: 10px;"/>
+</md-input-container>
+<div class="col-md-6">
+<div class="map-canvas">
+
+    <ng-map center="{{center}}" zoom="10" map-initialized="mycallback(map)" on-center-changed="mapDragged()" style="height: 800px;">
+        <marker ng-repeat='event in events' position='{{event.coords.coordinates[1]}}, {{event.coords.coordinates[0]}}' id='{{$index}}' on-click="showInfo(event, $index)"></marker>
+        <info-window id="bar-info-window" max-width"200" visible-on-marker="{{$index}}">
+        	<div ng-non-bindable="">
+        	<div id="bodyContent">
+        		<a ui-sref="main.event({eventId: selectedMarker._id})"><h3>{{selectedMarker.name}}</h3></a>
+        		<p>
+        			{{selectedMarker.about}}
+        		</p>
+        	</div>
+        	</div>
+        </info-window>
+ 	</ng-map>
+
+ </div>
+ </div>
+ <div class="events-wrapper">
+ <md-input-container>
+          <input id="homeSearch" type="text" ng-model="searchText" placeholder="Search by Name, Styles, Address, etc.">
+    </md-input-container>
+ <div class="col-md-6 event-list" ng-init="filter()">
+    
+ <div ng-repeat='event in events | filter:searchText'>
+    <a ui-sref="main.event({eventId: event._id})"><h3>{{event.name}}</h3></a>
+    <md-chips ng-model="event.styles" readonly="true">
+        <md-chip-template>
+        {{$chip}}
+        </md-chip-template>
+    </md-chips>
+    <md-chips ng-model="event.kinds" readonly="true">
+        <md-chip-template>
+        {{$chip}}
+        </md-chip-template>
+    </md-chips>
+    <p>{{event.about}}</p>
+    <p>{{event.start}}</p>
+    <p>{{event.end}}</p>
+ </div>
+ </div>
+ </div>
+ </div>

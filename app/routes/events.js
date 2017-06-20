@@ -19,9 +19,11 @@ module.exports = function(app, express) {
                 coordinates: [req.body.lng, req.body.lat]
             };
             event.start = req.body.start;
-            event.end = req.body.end;
+            if (req.body.end) {
+                event.end = req.body.end;
+            }
             event.styles = req.body.styles;
-            event.kind = req.body.kind;
+            event.kinds = req.body.kinds;
             event.about = req.body.about;
 
             // save and check for errors
@@ -62,6 +64,7 @@ module.exports = function(app, express) {
                     },
                     $maxDistance: req.body.radius
                 }}}, function(err, events) {
+                    
                 if (err) res.send(err);
                 res.json(events);
             });
@@ -88,7 +91,7 @@ module.exports = function(app, express) {
                 if (req.body.start) event.start = req.body.start;
                 if (req.body.end) event.end = req.body.end;
                 if (req.body.styles) event.styles = req.body.styles;
-                if (req.body.kind) event.kind = req.body.kind;
+                if (req.body.kinds) event.kinds = req.body.kinds;
                 if (req.body.abou) event.about = req.body.about;
                 
                 event.save(function(err) {

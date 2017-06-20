@@ -7,14 +7,15 @@ module.exports = function(app, express) {
 	tagsRouter.route('/styles')
 		.post(function(req, res) {
 			if (!req.body) return res.sendStatus(400);
-			
-			Tag.findOneAndUpdate({text: req.body.text, category: 'style'},true, null, function(error, tag) {
+			req.body.lowerText = req.body.lowerText || req.body.text.toLowerCase();
+			Tag.findOneAndUpdate({text: req.body.lowerText, category: 'style'},true, null, function(error, tag) {
 			    if (!error) {
 			        // If the document doesn't exist
 			        if (!tag) {
 			            // Create it
 			            tag = new Tag();
 			            tag.category = "style";
+			            tag.lowerText = req.body.text.toLowerCase();
 			            tag.text = req.body.text;
 			            tag.count = 0;
 			        }
@@ -56,14 +57,15 @@ module.exports = function(app, express) {
 	tagsRouter.route('/kinds')
 		.post(function(req, res) {
 			if (!req.body) return res.sendStatus(400);
-
-			Tag.findOneAndUpdate({text: req.body.text, category: 'kind'}, function(error, tag) {
+			req.body.lowerText = req.body.lowerText || req.body.text.toLowerCase();
+			Tag.findOneAndUpdate({text: req.body.lowerText, category: 'kind'},true, null, function(error, tag) {
 			    if (!error) {
 			        // If the document doesn't exist
 			        if (!tag) {
 			            // Create it
 			            tag = new Tag();
 			            tag.category = "kind";
+			            tag.lowerText = req.body.text.toLowerCase();			        
 			            tag.text = req.body.text;
 			            tag.count = 0;
 			        }

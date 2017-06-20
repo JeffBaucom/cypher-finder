@@ -43,6 +43,9 @@ app.use('/events', eventsRoutes);
 var tagsRoutes = require('./app/routes/tags')(app, express);
 app.use('/tags', tagsRoutes);
 
+// var authRoutes = require('./app/routes/auth')(app, express);
+// app.use('/auth', authRoutes);
+
 //var userRoutes = require('./app/routes/users')(app, express);
 //app.use('/users', userRoutes);
 

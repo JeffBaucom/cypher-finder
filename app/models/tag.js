@@ -6,6 +6,7 @@ var Schema = mongoose.Schema;
 var TagSchema = new Schema({
 	category : {type: String, required: true},
 	text : {type: String, required: true},
+	lowerText: {type: String, required: true},
 	count: {type: Number, required: true}
 });
 

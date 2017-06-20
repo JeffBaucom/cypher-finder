@@ -11,9 +11,9 @@ var EventSchema = new Schema({
     address : {type: String, required: false},
     coords: mongoose.Schema.Types.Mixed,
     start : {type: String, required: true},
-    end : {type: String, required: true},
+    end : {type: String, required: false},
     styles : [String],
-    kind : [String],
+    kinds : [String],
     about : {type: String},
     // additional : Schema.Types.ObjectId
 });
