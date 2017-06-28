@@ -15,9 +15,11 @@
 
 	<form ng-submit="postEvent()">
 	<div class="form-group">
+	<md-input-container>
 	<label>Event Name</label>
 	<input type="text" class="form-control"
 	ng-model="event.name">
+	</md-input-container>
 	</div>
 	<div class="row">
 		<div class="col-md-4">
@@ -71,9 +73,10 @@
 	        </span>
  		</md-chip-template>
  	</md-chips>
-
+ 	<md-input-container>
 	<label>About</label>
 	<textarea class="form-control" rows="3" ng-model="event.about"></textarea>
+	</md-input-container>
 	<button type="submit" class="btn btn-block btn-primary"> <span>Create</span>
 	</button>
 	</form>
