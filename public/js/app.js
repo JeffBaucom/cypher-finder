@@ -6,6 +6,7 @@ angular.module('myApp',
 	'ngMaterial',
 	'ui.bootstrap',
 	'ui.bootstrap.datetimepicker',
+	'mdPickers',
 	'ngTagsInput'
 	]);
 

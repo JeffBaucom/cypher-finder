@@ -2,7 +2,7 @@ angular.module('myApp').controller('createController', function($scope, $state, 
 
     $scope.markerPos = "(37.853843, -122.278776)";
     $scope.event = {
-       startDate: null,
+       startDate: new Date(),
        startTime: null,
        endDate: null,
        endTime: null

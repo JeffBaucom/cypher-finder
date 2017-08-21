@@ -21,21 +21,20 @@
 	ng-model="event.name">
 	</md-input-container>
 	</div>
-	<div class="row">
-		<div class="col-md-4">
+	<div layout="row" layout-align="center center">
+		<div>
 		<label>Start</label>
 		<p class="input-group">
-              <input type="text" class="form-control" uib-datepicker-popup="shortDate" ng-model="event.startDate" is-open="status.opened" datepicker-options="dateOptions" ng-required="true" close-text="Close" />
-              <span class="input-group-btn">
-                <button type="button" class="btn btn-default" ng-click="open($event)"><i class="glyphicon glyphicon-calendar"></i></button>
-              </span>
+            
+              <mdp-date-picker mdp-placeholder="Date" ng-model="event.startDate"></mdp-date-picker>
+
         </p>
         </div>
-        <div class="col-md-4">
-              <div uib-timepicker ng-model="event.startTime" hour-step="1" minute-step="15" show-meridian="ismeridian"></div>
+        <div>
+              <mdp-time-picker ng-model="event.startTime"></mdp-time-picker>
 		</div>
 	</div>
-	<div class="row">
+	<div>
 		<div class="col-md-4">
 		<label>End</label>
 		<p class="input-group">

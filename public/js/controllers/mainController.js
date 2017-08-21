@@ -1,5 +1,8 @@
-angular.module('myApp').controller('mainController', function($scope, Events, sharedData) {
-	$scope.$on('mapInitialized', function(evt, map) {
+angular.module('myApp').controller('mainController', function($scope, NgMap, Events, sharedData) {
+	 NgMap.getMap('foomap').then(function(map) {
+      console.log('NgMap.getMap in fooCtrl', map);
+    });
+  $scope.$on('mapInitialized', function(evt, map) {
     console.log('map init');
 		$scope.map = map; // expose map object
     $scope.locateUser();
@@ -53,6 +56,12 @@ angular.module('myApp').controller('mainController', function($scope, Events, sh
   };
 
   $scope.mapDragged = function() {
+    if (!$scope.map) {
+      NgMap.getMap('mainMap').then(function(map) {
+      console.log('NgMap.getMap in fooCtrl', map);
+      $scope.map = map;
+    });
+    }
     distance = calculateDistance($scope.map.getBounds().toJSON());
     Events.lookup({lat: $scope.map.getCenter().lat(), lon: $scope.map.getCenter().lng(), radius: distance})
       .then(function(data) {

@@ -6,7 +6,7 @@
 <div class="col-md-6">
 <div class="map-canvas">
 
-    <ng-map center="{{center}}" zoom="10" map-initialized="mycallback(map)" on-center-changed="mapDragged()" style="height: 800px;">
+    <ng-map id="mainMap" center="{{center}}" zoom="10" map-initialized="mycallback(map)" on-dragend="mapDragged()" style="height: 800px;">
         <marker ng-repeat='event in events' position='{{event.coords.coordinates[1]}}, {{event.coords.coordinates[0]}}' id='{{$index}}' on-click="showInfo(event, $index)"></marker>
         <info-window id="bar-info-window" max-width"200" visible-on-marker="{{$index}}">
         	<div ng-non-bindable="">
